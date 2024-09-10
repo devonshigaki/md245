@@ -5,11 +5,11 @@ phases:
     runtime-versions:
       nodejs: 20
     commands:
-      - npm install
+      - cd my-react-app && npm install  # Navigate to the React app folder and install dependencies
   build:
     commands:
-      - CI=false npm test -- --coverage
+      - cd my-react-app && CI=false npm test -- --coverage  # Run tests in the React app
 artifacts:
-  base-directory: build
+  base-directory: my-react-app/build  # Specify where the build artifacts are generated
   files:
     - '**/*'
